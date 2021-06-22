@@ -28,6 +28,7 @@ mat-card::ng-deep.mat-card-header-text {
 
   .temp {
     background: rgb(224, 227, 228);
+    height: 50%;
     color: black;
     margin-right: 10px;
     display: flex;
@@ -41,8 +42,11 @@ mat-card::ng-deep.mat-card-header-text {
 }
 
 .mat-card-image {
-    height: 100px;
-    width: 100px;
+  padding: 10px;
+  justify-content: baseline;
+    margin: 10px;
+    height: 150px;
+    width: 250px;
 }
 
 
