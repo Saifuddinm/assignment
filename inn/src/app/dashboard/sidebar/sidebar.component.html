@@ -1,0 +1,36 @@
+<!--
+https://coreui.io/docs/components/sidebar/
+-->
+<ul class="c-sidebar-nav">
+    <li class="c-sidebar-nav-title">Menu</li>
+    <li class="c-sidebar-nav-item">
+        <a class="c-sidebar-nav-link" matRipple routerLink="home" routerLinkActive="c-active">
+            <!-- core ui icon -->
+            <i class="c-sidebar-nav-icon cil-home"></i> Home
+        </a>
+    </li>
+
+    <li class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon cil-user"></i> User
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" matRipple href="https://simplelineicons.github.io/" target="_blank">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon icon-user"></i> User Info
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" href="https://fontawesome.com/v4.7.0/icons/" target="_blank">
+                    <i class="c-sidebar-nav-icon fa fa-plus"></i> Add User
+                </a>
+            </li>
+           
+        </ul>
+    </li>
+    <!-- allow hosted content -->
+    <ng-content></ng-content>
+</ul>
+
