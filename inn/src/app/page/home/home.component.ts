@@ -1,4 +1,6 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs/internal/observable/forkJoin';
 import { catchError, map } from 'rxjs/operators';
 import { PostService } from '../services/post.api';
 
@@ -9,25 +11,50 @@ import { PostService } from '../services/post.api';
 })
 export class HomeComponent implements OnInit {
   posts!: any;
-  picurl!: any;
+  photos!: any;
   constructor(private service:PostService) { 
     
   }
 
   ngOnInit() {
-    this.service.getPosts()
-      .subscribe(response => {
-        this.posts = response;
-        //console.log(this.posts);
-      });
-      //fetch pics related to post
-      //i am fetching only 1
-      /*this.service.getPics()
-      .subscribe(response => {
-        this.picurl = response;
-        console.log(this.picurl);
-      });*/
+    //if only posts are needed
+    //this.getPosts();
+
+    //getting image for perticular source
+    this.getPostWithImages();
   }
+  //this is bound in img source directly
+  getImageUrlById(id: any){
+    //var defaultUrl="../../../assets/images/card.jpeg";
+    //return defaultUrl;
+    var result=this.photos.find((item: { id: any; })=>item.id===id);
+    return result.thumbnailUrl;
+  }
+
+
+  getPostWithImages(){
+    forkJoin([this.service.getPosts(),this.service.getPhotos()]).subscribe(result=>{
+      this.posts=result[0];
+      this.photos=result[1];
+    })
+  }
+
+  getPosts(){
+    this.service.getPosts()
+    .subscribe(response => {
+      this.posts = response;
+      console.log(this.posts);
+    });
+  }
+
+  getImages(){
+    this.service.getPhotos()
+    .subscribe(response => {
+      this.photos = response;
+      console.log(this.photos);
+    });
+  }
+
   createPost(input: HTMLInputElement) {
     let post = { title: input.value };
     input.value = '';

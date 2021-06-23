@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class PostService {
 
   private url = 'https://jsonplaceholder.typicode.com/posts';
-  private urlPics = 'https://jsonplaceholder.typicode.com/photos/1';
+  private urlImages = 'https://jsonplaceholder.typicode.com/photos';
   
   
   constructor(private http: HttpClient) { }
@@ -16,10 +16,10 @@ export class PostService {
     return this.http.get(this.url);
   }
 
-  /*getPics() {
-    return this.http.get(this.urlPics);
-  }*/
-
+  getPhotos() {
+    return this.http.get(this.urlImages);
+  }
+  
   createPost(post: { title: string; }) {
     return this.http.post(this.url, JSON.stringify(post))
   }

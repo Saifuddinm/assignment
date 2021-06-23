@@ -51,7 +51,7 @@
                  <div class="temp">
                   
                   <mat-card-content>
-                    <img mat-card-image src="../../../assets/images/card.jpeg">
+                    <img mat-card-image src="{{getImageUrlById(post.id)}}">
                     <button 
                     (click)="updatePost(post)"
                     class="btn btn-default btn-sm">Update</button>
