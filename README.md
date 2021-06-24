@@ -35,7 +35,7 @@ There are two functional pages.
 
 1: Dashboard- https://jsonplaceholder.typicode.com/posts
 
-2: User's- https://jsonplaceholder.typicode.com/users
+2: Users- https://jsonplaceholder.typicode.com/users
 In user list, user is clickable to get user's details.
 
 Animation is used when user list is generated.
