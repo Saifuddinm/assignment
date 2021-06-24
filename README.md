@@ -19,7 +19,7 @@ Angular 10
 
 RxJS Library used to subscribe to the API data observable
 
-Google Material icons and coreui features are used
+material and coreui features are used
 
 Scripting: TypeScript, JavaScript
 
