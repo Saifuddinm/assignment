@@ -22,6 +22,9 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { PostService } from "../app/page/services/post.api";
+import { UserService } from '../app/page/services/user.api';
+import { UsersComponent } from './page/user/users/users.component';
+import { DetailsComponent } from './page/user/details/details.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { PostService } from "../app/page/services/post.api";
     SidebarComponent,
     ToggleDirective,
     HomeComponent,
-    TableComponent
+    TableComponent,
+    UsersComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ import { PostService } from "../app/page/services/post.api";
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   },
-  PostService
+  PostService,
+  UserService
 ],
   bootstrap: [AppComponent]
 })

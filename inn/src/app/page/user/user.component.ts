@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
+import { UserService } from '../services/user.api';
 
 @Component({
   selector: 'app-user',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-
-  constructor() { }
+  users!: any;
+  constructor(private service:UserService) { }
 
   ngOnInit(): void {
+  }
+
+  getUsers(){
+    this.service.getUsers()
+    .subscribe(response => {
+      this.users = response;
+      console.log(this.users);
+    });
   }
 
 }
