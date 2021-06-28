@@ -1,7 +1,8 @@
-import { identifierModuleUrl } from '@angular/compiler';
+import { identifierModuleUrl, visitAll } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
+import { concat, from, interval, merge, of, pipe } from 'rxjs';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, mergeMap, mergeMapTo, switchMap, tap } from 'rxjs/operators';
 import { PostService } from '../services/post.api';
 
 @Component({
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
 
     //getting image for perticular source
     this.getPostWithImages();
+
   }
   //this is bound in img source directly
   getImageUrlById(id: any){
@@ -31,6 +33,15 @@ export class HomeComponent implements OnInit {
     return result.thumbnailUrl;
   }
 
+  getPostImages(){
+    this.service.getPhotos()
+    .pipe(
+      mergeMap(
+        img=>this.service.getPosts()
+        ))
+        .subscribe(result=>{console.log(result);
+    })
+  }
 
   getPostWithImages(){
     forkJoin([this.service.getPosts(),this.service.getPhotos()]).subscribe(result=>{
@@ -43,7 +54,7 @@ export class HomeComponent implements OnInit {
     this.service.getPosts()
     .subscribe(response => {
       this.posts = response;
-      console.log(this.posts);
+      //console.log(this.posts);
     });
   }
 
@@ -51,7 +62,7 @@ export class HomeComponent implements OnInit {
     this.service.getPhotos()
     .subscribe(response => {
       this.photos = response;
-      console.log(this.photos);
+      //console.log(this.photos);
     });
   }
 

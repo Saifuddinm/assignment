@@ -25,6 +25,7 @@ import { PostService } from "../app/page/services/post.api";
 import { UserService } from '../app/page/services/user.api';
 import { UsersComponent } from './page/user/users/users.component';
 import { DetailsComponent } from './page/user/details/details.component';
+import { UserPostsComponent } from './page/user/userposts/userposts.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DetailsComponent } from './page/user/details/details.component';
     HomeComponent,
     TableComponent,
     UsersComponent,
-    DetailsComponent
+    DetailsComponent,
+    UserPostsComponent
   ],
   imports: [
     BrowserModule,

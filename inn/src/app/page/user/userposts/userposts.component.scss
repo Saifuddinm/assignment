@@ -22,14 +22,14 @@ mat-card::ng-deep.mat-card-header-text {
 }
 
  .outlook {
-    color: #668094;
-    background: #f0f5fb
+    color: black;
+    background: rgba(0,0,0,0.1);
   }
 
   .temp {
     background: rgb(224, 227, 228);
     height: 50%;
-    color: #47a1f6;
+    color: black;
     margin-right: 10px;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,14 @@ mat-card::ng-deep.mat-card-header-text {
     height: 150px;
     width: 250px;
 }
-
+.scrolling-wrapper{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  .card{
+    display: inline-block;
+  }
+}
 
 
 .counter {

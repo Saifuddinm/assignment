@@ -1,0 +1,54 @@
+<!--
+    action bar in breadcrumb
+    https://coreui.io/docs/components/bootstrap/breadcrumb/
+    https://getbootstrap.com/docs/4.0/utilities/position/
+    see also styles.scss .c-subheader.sticky-top
+-->
+<div class="c-subheader sticky-top justify-content-between px-3 c-header-shadow">
+    <div class="big-text">{{ user?.name }}'s Album's</div>
+    <div class="bottom">Title: {{ albums?.title }} => Total Photos {{photos?.length}}</div>
+</div>
+<main class="c-main">
+
+    <div class="container-fluid">
+        <mat-card class="mat-elevation-z5">
+            
+            <mat-card-content>
+                <div class="flex-row scrolling-wrapper">
+                    <div class="temp" *ngFor="let photo of photos">
+                        <div class="bottom">{{photo?.title}}</div>
+                        <img mat-card-image src="{{photo?.url}}">
+                    </div>
+
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+
+         <mat-card class="mat-elevation-z5">
+            <button (click)="onBack()" class="btn btn-default btn-sm pull-right">Back</button>
+
+            <div class="bottom">{{ user?.name }}'s Post</div>
+                <div class="flex-row">
+                 <div class="temp">
+                  
+                  <mat-card-content>
+                    <p>
+                        {{ posts?.title }}
+                    </p>
+
+                    <button 
+                    (click)="deletePost(posts)"
+                    class="btn btn-danger btn-sm pull-right">Delete</button>
+                    
+                    <p>
+                        {{ posts?.body }}
+                    </p>
+                  </mat-card-content>
+                </div>
+                
+            </div>
+          </mat-card>
+    </div>
+    
+</main>

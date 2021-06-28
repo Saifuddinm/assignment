@@ -1,8 +1,9 @@
-<!--
-https://coreui.io/docs/components/sidebar/
--->
-<ul class="c-sidebar-nav">
+<header class="c-header c-header-light px-3">
+    <a class="c-header-brand" href="#">LOREM|<span class="fc">PSUM</span></a>
+</header>
+<ul class="c-sidebar-nav" data-color="red">
     <li class="c-sidebar-nav-title">Menu</li>
+    <div class="c-sidebar-nav-divider"></div>
     <li class="c-sidebar-nav-item">
         <a class="c-sidebar-nav-link" matRipple routerLink="home" routerLinkActive="c-active">
             <!-- core ui icon -->
@@ -29,4 +30,3 @@ https://coreui.io/docs/components/sidebar/
     <!-- allow hosted content -->
     <ng-content></ng-content>
 </ul>
-

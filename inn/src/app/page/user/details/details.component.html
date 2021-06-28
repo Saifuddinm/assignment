@@ -1,28 +1,29 @@
 <div class="c-subheader sticky-top justify-content-between px-3 c-header-shadow">
-  User's Details
+  <i class="fa fa-address-book">   User's Details</i>
 </div>
 <main class="c-main">
   <div class="container-fluid">
 
 <div *ngIf="user$">
-  <h1>{{ user$.name }}</h1>
+  <h1>{{ user$?.name }}</h1>
 
   <ul>
-    <li><strong>Username:</strong> {{ user$.username }}</li>
-    <li><strong>Email:</strong> {{ user$.email }}</li>
-    <li><strong>Phone:</strong> {{ user$.phone }}</li>
+    <li><strong>Username:</strong> {{ user$?.username }}</li>
+    <li><strong>Email:</strong> {{ user$?.email }}</li>
+    <li><strong>Phone:</strong> {{ user$?.phone }}</li>
     <li><strong>Address:</strong> 
-      {{ user$.address.street }}, 
-      {{ user$.address.suite }}, 
-      {{ user$.address.city }}, 
-      {{ user$.address.zipcode }}
+      {{ user$.address?.street }}, 
+      {{ user$.address?.suite }}, 
+      {{ user$.address?.city }}, 
+      {{ user$.address?.zipcode }}
     </li>
     <li><strong>Company:</strong> 
-      {{ user$.company.name }} 
-      <strong>Catch phrase: </strong>{{ user$.company.catchPhrase }}. 
-      <strong>Mission: </strong>{{ user$.company.bs }}.
+      {{ user$.company?.name }} 
+      <strong>Catch phrase: </strong>{{ user$.company?.catchPhrase }}. 
+      <strong>Mission: </strong>{{ user$.company?.bs }}.
     </li>
   </ul>
 </div>
+<button (click)="onBack()" class="btn btn-default btn-sm pull-right">Back</button>
 </div>
 </main>

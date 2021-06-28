@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.api';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError, zip } from 'rxjs';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
+import { concatAll, concatMap, flatMap, map, mergeMap } from 'rxjs/operators';
+import { concat } from 'rxjs';
 
 
 export interface User {
@@ -44,7 +46,7 @@ export class UsersComponent implements OnInit {
   users$!: any;
 
   dataSource: User[] = [];
- displayedColumns: string[] = ['name', 'username', 'email'];
+ displayedColumns: string[] = ['name', 'username', 'email','posts'];
 
   constructor(private service: UserService) { }
 
@@ -53,7 +55,4 @@ export class UsersComponent implements OnInit {
       (response: any) => this.dataSource = response
     );
   }
-
-
-
 }
